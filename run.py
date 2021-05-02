@@ -2,6 +2,9 @@ from flask import Flask, redirect, url_for, render_template
 app = Flask(__name__)
 
 
+app.config['SECRET_KEY'] = 'ad2415b22b9f75eb718ca3a723045915'
+
+
 @app.route("/")
 @app.route("/home")
 def home():
