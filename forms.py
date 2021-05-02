@@ -4,8 +4,6 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo
 
 # Putting fields where you need to enter your name, password, confirm password
 
-# DataRequired() makes it so you need to put something in the field, from 3 to 16 characters long
-
 
 class RegistrationForm(FlaskForm):
 
