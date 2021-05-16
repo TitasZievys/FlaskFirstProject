@@ -1,5 +1,5 @@
-from __main__ import db
 from datetime import datetime
+from Greenhouse import db
 
 
 class User(db.Model):
