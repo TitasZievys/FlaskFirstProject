@@ -1,9 +1,13 @@
+from models import User, Post
 from flask import Flask, redirect, url_for, render_template, flash, redirect
+from flask_sqlalchemy import SQLAlchemy
 from forms import RegistrationForm, LoginForm
+
+
 app = Flask(__name__)
-
-
 app.config['SECRET_KEY'] = 'ad2415b22b9f75eb718ca3a723045915'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+db = SQLAlchemy(app)
 
 
 @app.route("/")
