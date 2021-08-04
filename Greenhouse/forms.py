@@ -1,7 +1,10 @@
+from flask.globals import request
 from flask_wtf import FlaskForm
+from wtforms import validators
 from wtforms.fields.html5 import TimeField
+from wtforms.fields.simple import TextField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import widgets, StringField, PasswordField, SubmitField, BooleanField
 
 # Putting fields where you need to enter your name, password, confirm password
 
@@ -30,3 +33,7 @@ class TimeInput(FlaskForm):
     duration = TimeField('Watering duration', format='%H:%M',
                          validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+
+class AutomationForm(FlaskForm):
+    title = BooleanField('Temperature')

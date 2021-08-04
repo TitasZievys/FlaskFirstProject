@@ -1,6 +1,9 @@
 from flask import redirect, url_for, render_template, flash, redirect
+import flask
+from flask.globals import request
+from flask_wtf import form
 from Greenhouse import app
-from Greenhouse.forms import RegistrationForm, LoginForm, TimeInput
+from Greenhouse.forms import AutomationForm, RegistrationForm, LoginForm, TimeInput
 from Greenhouse.models import User
 from datetime import datetime, date
 
@@ -8,7 +11,7 @@ from datetime import datetime, date
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("index.html", content=["tim", "jason", "bill"])
+    return render_template("index.html")
 
 
 @app.route("/valves", methods=['GET', 'POST'])
@@ -25,9 +28,17 @@ def valves():
     return render_template('valves.html', title='Valves', form=form, date_string='')
 
 
-@app.route("/automation")
+@app.route("/automation", methods=['GET', 'POST'])
 def automation():
-    return render_template('automation.html', title='Automation')
+    form = AutomationForm()
+    if form.validate_on_submit():
+        if 'add_row_1' in request.form:
+            pass  # do something
+        elif 'add_row_2' in request.form:
+            pass  # do something else
+        elif 'add_row_3' in request.form:
+            pass  # do something else
+    return render_template('automation.html', form=form)
 
 
 @app.route("/notifications")

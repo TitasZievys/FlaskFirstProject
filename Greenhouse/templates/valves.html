@@ -4,7 +4,7 @@
 {{ form.csrf_token }}
     {{ form.name }}
   <div class="form-group">
-                    {{ form.duration.label(class="form-control-label") }} Hours, minutes
+                    {{ form.duration.label(class="form-control-label") }} (Hours, minutes)
                     {% if form.duration.errors %}
                         {{ form.duration(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
