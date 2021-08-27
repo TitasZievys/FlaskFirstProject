@@ -1,4 +1,4 @@
-from flask import redirect, url_for, render_template, flash, redirect
+from flask import redirect, url_for, render_template, flash
 import flask
 from flask.globals import request
 from flask_wtf import form
@@ -31,13 +31,14 @@ def valves():
 @app.route("/automation", methods=['GET', 'POST'])
 def automation():
     form = AutomationForm()
-    if form.validate_on_submit():
-        if 'add_row_1' in request.form:
-            pass  # do something
-        elif 'add_row_2' in request.form:
-            pass  # do something else
-        elif 'add_row_3' in request.form:
-            pass  # do something else
+    if form.title == True:
+        'add_row_2_button' == True
+        'add_row_2_button' == True
+        'add_row_3_button' == True
+    else:
+        'add_row_1_button' == False
+        'add_row_2_button' == False
+        'add_row_3_button' == False
     return render_template('automation.html', form=form)
 
 
