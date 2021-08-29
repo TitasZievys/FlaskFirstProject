@@ -2,27 +2,28 @@
 {% block content %}
     <div class="content-section">
         <form method="POST" action="">
-            <div class="form-check">
-                {{form.title(class="form-check-input")}}
-                {{form.title.label(class="form-check-label form-check-label-lg")}}
-            </div>
-        <div class="row">
-                </br>
-        </div>
-        
-            <div>
-                <input type="submit" name="add_row_1_button" value="Add row 1">
-            </div>
-            <div> 
-                <input type="submit" name="add_row_2_button" value="Add row 2">  
-            </div>
-            <div>
-                <input type="submit" name="add_row_3_button" value="Add row 3">
-            </div>
             
+
+
+<div>
+  <input type="checkbox" id="checkme" name="scales">
+  <label for="scales">Temperature</label>
+</div>
+    <input class="btn btn-secondary" id="Btn1" type="button" name="add_row_1_button" value="Add row 1" disabled>
+    <input class="btn btn-secondary" id="Btn2" type="button" name="add_row_2_button" value="Add row 2" disabled>
+    <input class="btn btn-secondary" id="Btn3" type="button" name="add_row_3_button" value="Add row 3" disabled>
+
+  <script>
+    var checker = document.getElementById('checkme');
+    var sendbtn1 = document.getElementById("Btn1");
+    var sendbtn2 = document.getElementById("Btn2");
+    var sendbtn3 = document.getElementById("Btn3");
+checker.onchange = function() {
+  sendbtn1.disabled = !this.checked;
+  sendbtn2.disabled = !this.checked;
+  sendbtn3.disabled = !this.checked;
+};
+  </script>
         </form>
     </div>
-    <script>
-        
-    </script>
 {% endblock content %}
